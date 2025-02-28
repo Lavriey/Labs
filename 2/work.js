@@ -69,7 +69,7 @@ function drawWalkingLeft(y) {
   rect(115, y + 20, 25, 10); // Right arm 
   // Draw legs
   rect(85, y + 80, 10, 30); 
-  rect(95, y + 80, 10, 30); 
+  rect(105, y + 80, 10, 30); 
 }
 
 function drawWalkingRight(y) {
@@ -103,8 +103,8 @@ function drawJumpingRight(y) {
   // Draw body in a jumping pose (slightly tilted right)
   rect(85, y + 10, 30, 50); 
   // Draw arms 
-  rect(60, y + 10, 10, 10); // Left arm up
+  rect(75, y + 10, 10, 10); // Left arm up
   rect(115, y + 10, 25, 10); 
   // Legs together in a jump
-  rect(90, y + 55, 15, 25); 
+  rect(105, y + 55, 15, 25); 
 }
