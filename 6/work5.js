@@ -1,4 +1,4 @@
-let character;
+let character; // Гриб
 let canyon;
 let objects = [];
 let mushrooms = []; // Массив для грибов
@@ -10,19 +10,19 @@ function setup() {
   // Создаем каньон
   canyon = {
     x: 600,
-    y: height - 100,
+    y: height - 120,
     width: 200,
     height: 100,
     color: 'black'
   };
   
-  // Создаем персонажа
+  // Создаем персонажа (гриб)
   character = {
     x: 100,
     y: height - 150,
-    width: 40,
-    height: 60,
-    color: 'red',
+    width: 30, // Ширина гриба
+    height: 30, // Высота гриба
+    color: 'gray',
     velocityY: 0,
     isJumping: false,
     isFalling: false,
@@ -67,7 +67,7 @@ function draw() {
   fill(canyon.color);
   rect(canyon.x, canyon.y, canyon.width, canyon.height);
   
-  // Обновляем и рисуем персонажа
+  // Обновляем и рисуем персонажа (гриб)
   updateCharacter();
   drawCharacter();
 }
@@ -111,25 +111,18 @@ function drawObjects() {
 }
 
 function drawCharacter() {
-  // Рисуем персонажа в виде человека
+  // Рисуем гриб в виде серого квадрата с красным треугольником
   fill(character.color);
-  // Голова
-  ellipse(character.x + character.width / 2, character.y - 10, 20, 20);
-  // Тело
-  rect(character.x + 10, character.y, 20, character.height);
+  rect(character.x, character.y, character.width, character.height); // Стебель гриба
   
-  // Руки
-  if (character.facingLeft) {
-    rect(character.x - 10, character.y + 10, 10, 30); // Левая рука
-    rect(character.x + character.width, character.y + 10, 10, 30); // Правая рука
-  } else {
-    rect(character.x, character.y + 10, 10, 30); // Левая рука
-    rect(character.x + character.width - 10, character.y + 10, 10, 30); // Правая рука
-  }
-  
-  // Ноги
-  rect(character.x + 10, character.y + character.height, 10, 30);
-  rect(character.x + 20, character.y + character.height, 10, 30);
+  // Шляпка гриба
+  fill('red');
+  triangle(character.x, character.y, character.x + character.width / 2, character.y - character.height, character.x + character.width, character.y); // Шляпка гриба
+
+  // Белые точки на шляпке гриба
+  fill('white');
+  ellipse(character.x + character.width / 4, character.y - character.height / 2 + 5, 5, 5); // Первая точка
+  ellipse(character.x + (3 * character.width) / 4, character.y - character.height / 2 + 5, 5, 5); // Вторая точка
 }
 
 function updateCharacter() {
